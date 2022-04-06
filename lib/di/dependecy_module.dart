@@ -1,3 +1,4 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_tmdb_test/data/movies_repository_impl.dart';
 import 'package:flutter_tmdb_test/domain/repository/movies_repository.dart';
 import 'package:flutter_tmdb_test/domain/usecase/fetch_latest_movies_use_case.dart';
@@ -16,7 +17,7 @@ class DependencyModule {
       const DioClient(apiBaseUrl: NetworkConfig.baseUrl),
     );
     getIt.registerSingleton<MoviesRepository>(
-      MoviesRepositoryImpl(dioClient: getIt()),
+      MoviesRepositoryImpl(dioClient: getIt(), key: dotenv.env['TMDB_KEY']),
     );
     getIt.registerSingleton(FetchLatestMoviesUseCase(getIt()));
     getIt.registerSingleton(FetchPopularMoviesUseCase(getIt()));

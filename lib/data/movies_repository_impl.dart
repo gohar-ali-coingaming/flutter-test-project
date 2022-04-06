@@ -1,15 +1,13 @@
-import 'dart:convert';
-
 import 'package:flutter_tmdb_test/data/config.dart';
 import 'package:flutter_tmdb_test/domain/models/movies_model.dart';
 import 'package:flutter_tmdb_test/domain/repository/movies_repository.dart';
 import 'package:flutter_tmdb_test/networking/dio_client.dart';
-import 'package:flutter_tmdb_test/networking/network_config.dart';
 
 class MoviesRepositoryImpl implements MoviesRepository {
   final DioClient dioClient;
+  final String? key;
 
-  const MoviesRepositoryImpl({required this.dioClient});
+  const MoviesRepositoryImpl({required this.dioClient, this.key});
 
   @override
   Future<List<MoviesResultModel>> getLatestMovies() async => await _getMovies(DataConfig.latestMovies);
@@ -39,7 +37,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
       }
 
       return result;
-    } catch (e,st) {
+    } catch (e, st) {
       print("Exception : $e, $st");
       throw Exception();
     }
@@ -47,7 +45,7 @@ class MoviesRepositoryImpl implements MoviesRepository {
 
   Map<String, dynamic> _getQueryParameters() {
     return {
-      "api_key": NetworkConfig.apiKey,
+      "api_key": key,
       "language": "en-US",
       "page": "1",
     };
