@@ -6,6 +6,7 @@ Flutter application for tMDB data fetch.
 
 To run the project:
 
+- Get TMDB key from [here](https://developers.themoviedb.org/3/getting-started/introduction)
 - Open the project in your IDE.
 - Create a [.evn ](https://pub.dev/packages/flutter_dotenv) file at the project root and add `TMDB_KEY= <<your key here>>`. 
 - Run this command `flutter pub get` in the terminal.
