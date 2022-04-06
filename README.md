@@ -24,8 +24,7 @@ Main screen have the following:
 - User is be able to collapse, expanded section and vice versa from the section title bar.
 - Latest Movies API is Polled every 30 seconds to fetch the latest data and update the view. 
 
-
-
+<img src="https://user-images.githubusercontent.com/80252481/161983927-1d40faa3-afea-46c5-bd02-054928a57537.png" alt="drawing" width="200"/>
 
 
 
